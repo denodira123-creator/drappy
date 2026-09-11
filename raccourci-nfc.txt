@@ -1,0 +1,13 @@
+DRAPPY — configuration NFC iPhone
+
+1. Ouvre l’app « Raccourcis ».
+2. Automatisation → Créer une automatisation personnelle → NFC.
+3. Scanne la puce NFC placée près du lit.
+4. Ajoute l’action « Ouvrir les URL ».
+5. Mets l’URL de ton Drappy déployé suivie de :
+   /?nfc=draps
+   Exemple : https://TON-DOMAINE.example/?nfc=draps
+6. Pour que le NFC enregistre réellement le changement sans action manuelle,
+   le déploiement doit fournir un petit endpoint sécurisé /api/water.
+   Dans cette version autonome, le bouton « Draps changés » fonctionne
+   directement dans la PWA. Le raccord NFC peut être branché ensuite au backend.

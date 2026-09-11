@@ -1,16 +1,16 @@
-# Drappy
+# Drappy V3.1
 
-MVP PWA de suivi du changement des draps.
+Mise à jour design et ergonomie :
+- lit « fantôme » au début du cycle, puis remplissage blanc progressif depuis le bas
+- suppression de l'effet elliptique gris au milieu du lit
+- icône réglages SVG propre et centrée
+- croix SVG centrée dans les réglages
+- suppression individuelle des entrées de l'historique
+- si la dernière entrée est supprimée, le cycle revient automatiquement au changement précédent
+- intervalle dynamique conservé
 
-## Version 2
-- interface iPhone plus propre
-- icône de réglages en SVG
-- lit simplifié sans cadre extérieur
-- progression blanche depuis le bas
-- réglages de notifications avec switch
-- couleurs sous forme de vrais sélecteurs visuels
-- intervalle dynamique partout
-- conservation des données locales
 
-## Important
-Cette version est encore une étape visuelle. Les notifications fiables en arrière-plan et l'automatisation NFC avec synchronisation serveur seront ajoutées ensuite.
+### V3.1
+- Fond personnalisable avec uniformisation des nuances bleues.
+- Suppression du choix de couleur du drap.
+- Service Worker mis à jour avec cache versionné, nettoyage des anciens caches et stratégie réseau prioritaire pour faciliter les mises à jour.

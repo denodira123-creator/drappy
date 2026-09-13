@@ -17,21 +17,20 @@
       </div>
       <button class="icon-btn" id="settingsBtn" aria-label="Réglages" title="Réglages">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 8.25a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Z"/>
-          <path d="M19.43 15.01a1.8 1.8 0 0 0 .36 1.98l.06.06-1.41 1.41-.06-.06a1.8 1.8 0 0 0-1.98-.36 1.8 1.8 0 0 0-1.09 1.65v.09h-2v-.09a1.8 1.8 0 0 0-1.09-1.65 1.8 1.8 0 0 0-1.98.36l-.06.06-1.41-1.41.06-.06a1.8 1.8 0 0 0 .36-1.98 1.8 1.8 0 0 0-1.65-1.09h-.09v-2h.09a1.8 1.8 0 0 0 1.65-1.09 1.8 1.8 0 0 0-.36-1.98l-.06-.06 1.41-1.41.06.06a1.8 1.8 0 0 0 1.98.36 1.8 1.8 0 0 0 1.09-1.65v-.09h2v.09a1.8 1.8 0 0 0 1.09 1.65 1.8 1.8 0 0 0 1.98-.36l.06-.06 1.41 1.41-.06.06a1.8 1.8 0 0 0-.36 1.98 1.8 1.8 0 0 0 1.65 1.09h.09v2h-.09a1.8 1.8 0 0 0-1.65 1.09Z"/>
+          <path fill="currentColor" d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.37-.31-.6-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98L14.5 2.42C14.47 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.5.42L9.12 5.07c-.61.25-1.18.59-1.69.98l-2.49-1c-.23-.08-.48 0-.6.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.08.65-.08.98s.03.66.08.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.37.31.6.22l2.49-1c.51.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.65c.61-.25 1.17-.58 1.69-.98l2.49 1c.23.08.48 0 .6-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z"/>
         </svg>
       </button>
     </header>
 
     <section class="hero card">
       <div class="bed-wrap" aria-label="Progression du cycle">
-        <div class="bed" id="bed">
-          <div class="pillow pillow-a"></div>
-          <div class="pillow pillow-b"></div>
-          <div class="duvet"></div>
-          <div class="duvet-fill" id="bedFill"></div>
-          <div class="duvet-fold"></div>
-          <div class="mattress-shadow"></div>
+        <div class="bed" id="bed" aria-hidden="true">
+          <div class="bed-frame"><div class="bed-fill" id="bedFrameFill"></div></div>
+          <div class="bed-cover">
+            <div class="bed-fill" id="bedFill"></div>
+          </div>
+          <div class="pillow pillow-a"><div class="pillow-fill" id="pillowFillA"></div></div>
+          <div class="pillow pillow-b"><div class="pillow-fill" id="pillowFillB"></div></div>
         </div>
       </div>
       <div class="progress-copy">
@@ -62,7 +61,7 @@
     </section>
   </main>
 
-  <aside class="sheet hidden" id="settingsSheet">
+  <aside class="sheet hidden" id="settingsSheet" aria-label="Réglages">
     <div class="sheet-inner">
       <div class="sheet-head">
         <div>
@@ -70,8 +69,22 @@
           <h2>Réglages</h2>
         </div>
         <button class="icon-btn close-btn" id="closeSettings" aria-label="Fermer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 7l10 10M17 7 7 17"/>
+          </svg>
         </button>
+      </div>
+
+      <div class="preview-label">Aperçu du lit</div>
+      <div class="settings-bed-wrap" aria-hidden="true">
+        <div class="preview-bed">
+          <div class="preview-frame"><div class="preview-fill" id="settingsFrameFill"></div></div>
+          <div class="preview-cover">
+            <div class="preview-fill" id="settingsBedFill"></div>
+          </div>
+          <div class="preview-pillow preview-pillow-a"><div class="pillow-fill" id="previewPillowFillA"></div></div>
+          <div class="preview-pillow preview-pillow-b"><div class="pillow-fill" id="previewPillowFillB"></div></div>
+        </div>
       </div>
 
       <label class="field-label">Ton prénom
@@ -80,7 +93,7 @@
 
       <label class="field-label">Intervalle entre deux changements
         <div class="inline-input">
-          <input id="intervalInput" type="number" min="1" max="365">
+          <input id="intervalInput" type="number" min="1" max="365" inputmode="numeric">
           <span>jours</span>
         </div>
       </label>
@@ -97,22 +110,29 @@
         </label>
       </div>
 
-      <div class="setting-block">
-        <div class="setting-title">Apparence</div>
-        <div class="setting-subtitle">Personnalise les couleurs de Drappy</div>
-        <div class="color-grid">
-          <label class="color-card">
-            <span>Fond</span>
-            <span class="color-control">
-              <input id="bgInput" type="color" aria-label="Couleur de fond">
-              <span class="color-swatch" id="bgSwatch"></span>
-            </span>
-          </label>
-</div>
+      <div class="setting-block appearance-block">
+        <div class="setting-title">Couleur de fond</div>
+        <div class="swatch-row" id="swatchRow">
+          <button type="button" class="swatch" data-color="#07111f" style="background:#07111f" aria-label="Bleu minuit"></button>
+          <button type="button" class="swatch" data-color="#0f2e1f" style="background:#0f2e1f" aria-label="Vert forêt"></button>
+          <button type="button" class="swatch" data-color="#0d2733" style="background:#0d2733" aria-label="Bleu pétrole"></button>
+          <button type="button" class="swatch" data-color="#2a1b3d" style="background:#2a1b3d" aria-label="Prune"></button>
+          <button type="button" class="swatch" data-color="#241010" style="background:#241010" aria-label="Bordeaux"></button>
+          <span class="swatch-custom-wrap">
+            <input id="bgInput" type="color" aria-label="Choisir une couleur personnalisée">
+            <svg class="swatch-pipette" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m7 17 1.5-1.5M15 5l4 4-8.5 8.5-4-4L15 5Zm-9 12 2-2"/>
+            </svg>
+          </span>
+        </div>
+        <button type="button" class="reset-color" id="resetBgBtn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 7v5h-5M19 12a7 7 0 1 0 2 5"/></svg>
+          Revenir à la couleur originale
+        </button>
       </div>
 
-      <button class="primary" id="saveSettings">Enregistrer</button>
-      <p class="small">Les notifications fiables sur iPhone seront ajoutées dans la prochaine étape avec le système de rappels. Le réglage ci-dessus prépare déjà Drappy pour cela.</p>
+      <button class="primary save-settings" id="saveSettings">Enregistrer</button>
+      <p class="small">Sur iPhone, les notifications Web dépendent du navigateur et du mode d’installation de la PWA. Le rappel NFC peut continuer à fonctionner via Raccourcis.</p>
     </div>
   </aside>
 
